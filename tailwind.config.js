@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'imagem_professional': "url('./src/assets/Foto_Perfil_Compass.jpeg')"
+      }
+    },
   },
   plugins: [],
 }

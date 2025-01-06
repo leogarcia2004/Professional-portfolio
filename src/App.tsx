@@ -4,22 +4,21 @@ function App() {
 
   return (
     <>
-      <div>
-        <header className="bg-black opacity-60 flex justify-items-end px-2 py-4">
+        <header className="absolute top-0 z-10 bg-black bg-opacity-60 w-full flex justify-end px-8 py-4 shadow-lg">
           <nav>
-            <ul>
-              <li>INICIO</li>
-              <li>SOBRE</li>
-              <li>HABILIDADES</li>
-              <li>PROJETOS</li>
-              <li>CONTATO</li>
+            <ul className="flex justify-center gap-6 text-white text-sm ">
+              <li className="tracking-[0.1rem] opacity-50 hover:opacity-100 cursor-pointer">INICIO</li>
+              <li className="tracking-[0.1rem] opacity-50 hover:opacity-100 cursor-pointer">SOBRE</li>
+              <li className="tracking-[0.1rem] opacity-50 hover:opacity-100 cursor-pointer">HABILIDADES</li>
+              <li className="tracking-[0.1rem] opacity-50 hover:opacity-100 cursor-pointer">PROJETOS</li>
+              <li className="tracking-[0.1rem] opacity-50 hover:opacity-100 cursor-pointer">CONTATO</li>
             </ul>
           </nav>
         </header>
-        <section>
-            <div>
-              <h1>OI, EU SOU O LEONARDO!</h1>
-              <span>A PROFESSIONAL WEB DEVELOPER</span>
+        <section className="bg-imagem_professional bg-cover bg-center h-screen flex justify-center items-center">
+            <div className="flex flex-col items-center text-white">
+              <h1 className="font-bold text-5xl">Oi, eu sou o Leonardo!</h1>
+              <span className="text-lg tracking-[0.1rem] border-b border-white py-1">A PROFESSIONAL WEB DEVELOPER</span>
             </div>
         </section>
         <section>
@@ -65,7 +64,6 @@ function App() {
               </div>
             </div>
         </section>
-      </div>
     </>
   )
 }
