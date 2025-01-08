@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'imagem_professional': "url('./src/assets/Foto_Perfil_Compass.jpeg')"
+        'imagem_professional': "url('./src/assets/Foto_Perfil.jpeg')"
       }
     },
   },
