@@ -1,13 +1,14 @@
 import Foto_perfil from './assets/Foto_Perfil.jpeg'
-import HTML from './assets/html_icon.png'
-import CSS from './assets/css_icon.png'
-import JavaScript from './assets/JavaScript.png'
-import TypeScript from './assets/TypeScript.png'
-import ReactJs from './assets/ReactJs.png'
-import NextJs from './assets/nextjs_icon.png'
-import PostgreSQL from './assets/postgreSQL.png'
-import Python from './assets/python_icon.png'
-import TailwindCss from './assets/tailwindcss_icon.png'
+import HTML from './assets/images_icons_skills/html_icon.png'
+import CSS from './assets/images_icons_skills/css_icon.png'
+import JavaScript from './assets/images_icons_skills/JavaScript.png'
+import TypeScript from './assets/images_icons_skills/TypeScript.png'
+import ReactJs from './assets/images_icons_skills/ReactJs.png'
+import NextJs from './assets/images_icons_skills/nextjs_icon.png'
+import PostgreSQL from './assets/images_icons_skills/postgreSQL.png'
+import Python from './assets/images_icons_skills/python_icon.png'
+import TailwindCss from './assets/images_icons_skills/tailwindcss_icon.png'
+import Projects from './components/Projects'
 
 function App() {
 
@@ -103,16 +104,16 @@ function App() {
                 <img src={Foto_perfil} alt="Imagem Autor" className='bg-cover w-80' />
                 <p className="text-justify text-sm text-white leading-[2rem] ">
                    Meu nome é Leonardo, tenho 21 anos e curso Análise e Desenvolvimento de Sistemas. Atualmente estou estudando desenvolvimento web e mobile. Meu intuito é fazer parte de equipe de Desenvolvimento de Software, tendo o objetivo de evoluir profissionalmente para júnior e consequentemente para pleno e sênior. <br />
-                Tive minha primeira oportunidade na área de desenvolvimento Web, trabalhando como estagiário na empresa Compass UOL, no qual adquiri experiência com trabalho em equipe. Possuo conhecimento na área de infraestrutura de TI, atuando como suporte de TI na escola Instituto Samaritano e trabalhei como jovem aprendiz na Gráfica Cristal de Franca. Nesse período, consegui aprimorar meu perfil profissional para o mercado de trabalho.  <br />
+                Tive minha primeira oportunidade na área de desenvolvimento Web, trabalhando como estagiário na empresa <a href="https://compass.uol/pt/home/" target="_blank" rel="noopener noreferrer">Compass UOL</a>, no qual adquiri experiência com trabalho em equipe. Possuo conhecimento na área de infraestrutura de TI, atuando como suporte de TI na escola <a href="https://www.institutosamaritano.com.br" target="_blank" rel="noopener noreferrer">Instituto Samaritano de Ensino</a> e trabalhei como jovem aprendiz na Gráfica Cristal de Franca. Nesse período, consegui aprimorar meu perfil profissional para o mercado de trabalho.  <br />
                 Tenho grande interesse na área de análise de dados e pretendo, futuramente, aprofundar meus estudos em Python, com o objetivo de me tornar um desenvolvedor Full Stack. Sou motivado por desafios, proativo e tenho um forte compromisso com a aquisição e expansão de conhecimentos. Trabalhando em equipe, almejo contribuir com inovação e impactar positivamente o ambiente, enquanto continuo a desenvolver minhas habilidades técnicas e interpessoais. <br />
                 Atualmente, estou cursando inglês na escola KNN de Franca com o objetivo de ampliar minhas oportunidades no setor tecnológico e aprimorar minha qualificação na comunicação.
                 </p>
               </div>
             </div>      
         </section>
-        <section className="bg-[#111111] flex flex-col items-center  w-full">
+        <section className="bg-[#111111] flex flex-col items-center w-full">
             <div className="flex flex-col items-center max-w-[1440px]">
-              <h2 className="text-4xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mt-52">HABILIDADES</h2>
+              <h2 className="text-4xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mt-44">HABILIDADES</h2>
               <div className='mt-28'>
                 <ul className='flex gap-8 flex-wrap justify-center'>
                   {skills.map(skill => (
@@ -126,26 +127,8 @@ function App() {
               </div>
             </div>
         </section>
-        <section>
-            <h2>PROJETOS</h2>
-            <div>
-              <div>
-                <img src="" alt="Imagem Projeto" />
-                <h3></h3>
-                <p>Projeto 1</p>
-              </div>
-              <div>
-                <img src="" alt="Imagem Projeto" />
-                <h3></h3>
-                <p>Projeto 2</p>
-              </div>
-              <div>
-                <img src="" alt="Imagem Projeto" />
-                <h3></h3>
-                <p>Projeto 3</p>
-              </div>
-            </div>
-        </section>
+        <Projects />
+        
     </>
   )
 }
