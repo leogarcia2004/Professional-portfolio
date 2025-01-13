@@ -36,9 +36,9 @@ const Projects = () => {
         }
     ]
   return (
-    <section className="bg-[#111111] flex flex-col w-full">
-        <div className='max-w-[1440px] px-12'>
-          <h2 className="text-4xl font-semibold tracking-[0.1rem] text-center text-white border-b border-white pb-1 mt-52">PROJETOS</h2>
+    <section className="bg-[#111111] w-full">
+        <div className='max-w-[1440px] flex flex-col px-12'>
+          <h2 className="text-4xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44">PROJETOS</h2>
             <ul className='mt-32 flex flex-col gap-16'>
                 {projects.map(project => (
                   (
