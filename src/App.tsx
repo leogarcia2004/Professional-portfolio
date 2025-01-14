@@ -7,7 +7,6 @@ import instagram from './assets/images_icons_footer/instagram.png'
 
 function App() {
 
-
   return (
     <>
         <header className="fixed top-0 z-10 bg-black bg-opacity-60 w-full flex justify-end px-8 py-4 shadow-lg">
@@ -29,7 +28,7 @@ function App() {
         </section>
         <section className="bg-[#111111] flex flex-col items-center w-full">
             <div className="flex flex-col items-center max-w-[1440px] px-16">
-              <h2 className="text-4xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mt-32">SOBRE MIM</h2>           
+              <h2 className="text-4xl font-semibold tracking-[0.1rem] text-center text-white border-b border-white pb-1 mt-32">SOBRE MIM</h2>           
               <div className='flex flex-col md:flex-row items-center gap-12 mt-14'>
                 <img src={Foto_perfil} alt="Imagem Autor" className='bg-cover w-80' />
                 <p className="text-justify text-sm text-white leading-[2rem] ">
@@ -43,28 +42,28 @@ function App() {
         </section>
         <Skills />
         <Projects />
-        <section className="bg-[#111111] w-full">
-            <div className="flex flex-col items-center max-w-[1440px]">
-              <h2 className="text-4xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mt-52">Entre em contato</h2>
-              <form className='flex flex-col gap-6 mt-20' action="">
-                  <input className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-80 max-w-[500px] h-12 pl-3 focus:border-neutral-300 appearance-none' type="text" name="name" id="name" placeholder='Seu nome' />
-                  <input className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-80 max-w-[500px] h-12 pl-3 focus:border-neutral-300 appearance-none' type="email" name="email" id="email" placeholder='Seu e-mail' />
-                  <textarea className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-80 max-w-[500px] pt-3 pl-3 focus:border-neutral-300 resize-none' name="message" id="message" rows={5} placeholder='Sua mensagem'></textarea>
-                  <button type='submit' className='bg-black text-sm text-white font-semibold rounded-xl md:w-[500px] w-80 max-w-[500px] h-12 pl-3 cursor-pointer mb-40'>ENVIAR</button>
+        <section className="bg-[#111111] w-full ">
+            <div className="flex flex-col max-w-[1440px] ">
+              <h2 className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44">Entre em contato</h2>
+              <form className='flex flex-col md:items-center gap-6 mt-20 md:px-0 px-6' action="">
+                  <input className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="text" name="name" id="name" placeholder='Seu nome' />
+                  <input className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="email" name="email" id="email" placeholder='Seu e-mail' />
+                  <textarea className='bg-[#202020] text-neutral-300 rounded-xl md:w-[500px] w-full pt-3 pl-3 focus:border-neutral-300 resize-none' name="message" id="message" rows={5} placeholder='Sua mensagem'></textarea>
+                  <button type='submit' className='bg-black text-sm text-white font-semibold rounded-xl md:w-[500px] w-full h-12 pl-3 cursor-pointer mb-40'>ENVIAR</button>
               </form>
-            </div>
+            </div>=
         </section>
-        <footer className='bg-black w-full px-12 py-8'>
+        <footer className='bg-black w-full md:px-12 px-6 py-8'>
             <div className='flex justify-between max-w-[1440px]'>
               <ul className='flex items-center gap-6'>
                 <li>
                   <a href="mailto:leonardogarcia1914@hotmail.com"><img src={email} alt="Icone Email" /></a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/leonardo-garcia-21a2852b0/" target='_blank'><img src={linkedin} alt="Icone LinkedIn" /></a>
+                  <a href="https://www.linkedin.com/in/leonardo-garcia-21a2852b0/" target='_blank' rel="noopener"><img src={linkedin} alt="Icone LinkedIn" /></a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/leogarcia_g/" target='_blank'><img src={instagram} alt="Icone Instagram" /></a>
+                  <a href="https://www.instagram.com/leogarcia_g/" target='_blank' rel="noopener"><img src={instagram} alt="Icone Instagram" /></a>
                 </li>
               </ul>
               <span className='text-white text-opacity-75 text-sm'>Copyright 2024</span>
