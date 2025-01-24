@@ -9,14 +9,6 @@ interface WidthContextData {
     windowWidth: number;
     handleNavBar?: () => void;
     navBarOpen?: boolean;
-    itemVariants?: {
-        hidden: { opacity: number; x: number };
-        visible: { opacity: number; x: number; transition: { duration: number } };
-    };
-    containerVariants?: {
-        hidden: { opacity: number };
-        visible: { opacity: number; transition: { staggerChildren: number } };
-    };
 }
 
 const WidthContext = createContext( {} as WidthContextData );
@@ -36,24 +28,8 @@ const WidthContextProvider:React.FC<PropsWidth> = ({children}) => {
         setNavBarOpen(!navBarOpen)
       }
 
-      const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-     
-            staggerChildren: 0.3, 
-          },
-        },
-      };
-    
-      const itemVariants = {
-        hidden: { opacity: 0, x: -50 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-      };
-
     return (
-        <WidthContext.Provider value={{windowWidth, handleNavBar, navBarOpen, itemVariants, containerVariants}}>
+        <WidthContext.Provider value={{windowWidth, handleNavBar, navBarOpen}}>
             {children}
         </WidthContext.Provider>
     )

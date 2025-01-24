@@ -7,36 +7,33 @@ import useScrollDirection from "../hooks/useScrollDirection";
 
 const Skills = () => {
 
-  const { windowWidth, containerVariants, itemVariants } = useWidthContext()
+  const { windowWidth } = useWidthContext()
   const scrollDirection = useScrollDirection();
 
   return (
     windowWidth > 700 ? (
-      <motion.section
+      <section
         id="skills"
         className="bg-[#111111] flex flex-col items-center w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+
       >
         <motion.div
           className="flex flex-col items-center max-w-[1440px]"
-          variants={containerVariants}
-          animate={scrollDirection === "down" ? "visible" : undefined}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
+          viewport={{ once: false, amount: 0.3 }}
         >
-          <motion.h2
+          <h2
             className="text-4xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mt-44"
-            variants={itemVariants}
           >
             HABILIDADES
-          </motion.h2>
-          <motion.div className="mt-28" variants={containerVariants}>
-            <motion.ul className="flex gap-8 flex-wrap justify-center">
+          </h2>
+          <div className="mt-28">
+            <ul className="flex gap-8 flex-wrap justify-center">
               {skills.map((skill, index) => (
-                <motion.li
+                <li
                   key={index}
                   className="bg-[#202020] flex flex-col items-center justify-center w-72 h-64 rounded-2xl cursor-pointer"
-                  variants={itemVariants}
                 >
                   <img
                     src={skill.image}
@@ -45,31 +42,29 @@ const Skills = () => {
                   />
                   <span className="text-white font-semibold mb-4">{skill.name}</span>
                   <p className="text-gray-300 text-sm text-center w-52">{skill.description}</p>
-                </motion.li>
+                </li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </ul>
+          </div>
         </motion.div>
-      </motion.section>
+      </section>
     ) : (    
-      <motion.section
+      <section
         id="skills"
         className="bg-[#111111] w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
       >
         <motion.div
           className="flex flex-col items-center"
-          variants={containerVariants}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
+          viewport={{ once: false, amount: 0.3 }}
           animate={scrollDirection === "down" ? "visible" : undefined}
         >
-          <motion.h2
+          <h2
             className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mb-8 mt-36"
-            variants={itemVariants}
           >
             HABILIDADES
-          </motion.h2>
+          </h2>
           <Splide
             options={{
               type: 'loop',
@@ -81,12 +76,8 @@ const Skills = () => {
           >
             {skills.map((skill, index) => (
               <SplideSlide key={index}>
-                <motion.div
+                <div
                   className="bg-[#202020] flex flex-col items-center justify-center w-72 h-64 mx-auto rounded-2xl shadow-lg cursor-pointer"
-                  initial="hidden"
-                  animate="visible"
-                  whileHover={{ scale: 1.05 }}
-                  variants={itemVariants}
                 >
                   <img
                     src={skill.image}
@@ -95,12 +86,12 @@ const Skills = () => {
                   />
                   <span className="text-white font-semibold mb-4">{skill.name}</span>
                   <p className="text-gray-300 text-sm text-center w-52">{skill.description}</p>
-                </motion.div>
+                </div>
               </SplideSlide>
             ))}
           </Splide>
         </motion.div>
-      </motion.section>
+      </section>
     )
   );
 };

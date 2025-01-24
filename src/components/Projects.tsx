@@ -10,7 +10,7 @@ const Projects = () => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const projects_per_page =  4
-  const { windowWidth, itemVariants, containerVariants} = useWidthContext()
+  const { windowWidth} = useWidthContext()
   const scrollDirection = useScrollDirection();
 
   const getVisibleProjects = () => {
@@ -56,32 +56,29 @@ const Projects = () => {
   return (
     
     windowWidth > 700 ? (
-      <motion.section 
+      <section 
         id='projects' 
         className="bg-[#111111] w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
       >
         <motion.div 
           className='max-w-[1440px] flex flex-col px-12'
-          variants={containerVariants}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
+          viewport={{ once: false, amount: 0.3 }}
           animate={scrollDirection === "down" ? "visible" : undefined}
         >
-          <motion.h2 
+          <h2 
             className="text-4xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44"
-            variants={itemVariants}
           >
             PROJETOS
-          </motion.h2>
-          <motion.ul className='mt-32 flex flex-col gap-16'>
+          </h2>
+          <ul className='mt-32 flex flex-col gap-16'>
               {getVisibleProjects().map((project) => (
                 (
                   project.id % 2 !== 0 ?
-                  <motion.li 
+                  <li 
                     key={project.id} 
                     className='flex md:flex-row flex-col items-center gap-10 '
-                    variants={itemVariants}
                   >
                     <a href={project.link} target='_blank' rel='noreferrer'>
                       <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
@@ -96,12 +93,11 @@ const Projects = () => {
                         }
                       </ul>
                     </div>  
-                  </motion.li>
+                  </li>
                   :
-                  <motion.li 
+                  <li 
                     key={project.id} 
                     className='flex md:flex-row-reverse flex-col items-center self-end gap-10'
-                    variants={itemVariants}
                   >
                     <a href={project.link} target='_blank' rel='noreferrer'>
                       <img src={project.image} className='w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110' alt="Imagem Projeto" />
@@ -116,10 +112,10 @@ const Projects = () => {
                         }
                       </ul>
                     </div>    
-                  </motion.li>
+                  </li>
                 )
               ))}
-            </motion.ul>
+            </ul>
             <div className="flex gap-6 justify-center mt-20 mb-12">
               {currentPage !== 1 && (
                 <button
@@ -151,26 +147,24 @@ const Projects = () => {
               </button>
             </div>
         </motion.div>
-      </motion.section>
+      </section>
     ) : (
-      <motion.section 
+      <section 
         id='projects' 
         className="bg-[#111111] w-full"
-        initial="hidden"
-        whileInView="visible"     
-        viewport={{ once: false, amount: 0.3 }}
       >
         <motion.div 
           className="flex flex-col items-center"
-          variants={containerVariants}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
+          viewport={{ once: false, amount: 0.3 }}
           animate={scrollDirection === "down" ? "visible" : undefined}
         >
-          <motion.h2 
+          <h2 
             className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mb-8 mt-36"
-            variants={itemVariants}
           >
             PROJETOS
-          </motion.h2>
+          </h2>
           <Splide
             options={{
               type: 'loop',
@@ -181,13 +175,9 @@ const Projects = () => {
           >
             {projects.map((project, index) => (
               <SplideSlide key={index}>
-                <motion.div 
+                <div 
                   key={project.id} 
                   className='flex md:flex-row flex-col items-center gap-10'
-                  initial="hidden"
-                  animate="visible"
-                  whileHover={{ scale: 1.05 }}
-                  variants={itemVariants}     
                 >
                   <a href={project.link} target='_blank' rel='noreferrer'>
                     <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-125" alt="Imagem Projeto" />
@@ -201,12 +191,12 @@ const Projects = () => {
                       ))}
                     </ul>
                   </div>
-                </motion.div>
+                </div>
               </SplideSlide>
             ))}
           </Splide>
         </motion.div>
-      </motion.section>
+      </section>
     )
   )
 }
