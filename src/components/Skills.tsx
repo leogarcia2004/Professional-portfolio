@@ -11,7 +11,7 @@ const Skills = () => {
   const scrollDirection = useScrollDirection();
 
   return (
-    windowWidth > 700 ? (
+    windowWidth > 770 ? (
       <section
         id="skills"
         className="bg-[#111111] flex flex-col items-center w-full"

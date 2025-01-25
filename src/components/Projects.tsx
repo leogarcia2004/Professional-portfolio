@@ -55,7 +55,7 @@ const Projects = () => {
     
   return (
     
-    windowWidth > 700 ? (
+    windowWidth > 770 ? (
       <section 
         id='projects' 
         className="bg-[#111111] w-full"
@@ -177,14 +177,14 @@ const Projects = () => {
               <SplideSlide key={index}>
                 <div 
                   key={project.id} 
-                  className='flex md:flex-row flex-col items-center gap-10'
+                  className='flex flex-col items-center gap-10'
                 >
                   <a href={project.link} target='_blank' rel='noreferrer'>
                     <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-125" alt="Imagem Projeto" />
                   </a>
-                  <div className='flex flex-col gap-4 max-w-[400px]'>
+                  <div className='flex flex-col gap-4 max-w-[600px]'>
                     <h3 className='text-white text-center text-3xl font-semibold'>{project.title}</h3>
-                    <p className='text-gray-300 text-center px-2'>{project.description}</p>
+                    <p className='text-gray-300 text-center  px-2'>{project.description}</p>
                     <ul className='flex flex-wrap gap-4 items-center justify-center'>
                       {project.Technologies.map((tech, index) => (
                         <li key={index} className='px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold transform transition-transform duration-300 hover:scale-110'>{tech}</li>

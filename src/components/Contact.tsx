@@ -1,11 +1,11 @@
 
 import { User } from '../types/user'
 import { useForm } from 'react-hook-form'
+import emailJs from '@emailjs/browser'
 
 const Contact = () => {
 
     const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-    const cellphoneRegex = /^\(\d{2}\)\s\d{5}-\d{4}$/;
     const {
         register,
         handleSubmit,
@@ -13,9 +13,22 @@ const Contact = () => {
         reset,
       } = useForm<User>();
 
-      const onSubmit = (data: User) => {
+      const onSubmit = (data: User, event: React.BaseSyntheticEvent) => {
+        event.preventDefault();
         console.log('Form data:', data);
         reset();
+
+        const templateParams = {
+          from_name: data.name,
+          email: data.email,
+          message: data.message
+        }
+        emailJs.send('service_6o2xfl6', 'template_tu7ijds', templateParams, "1wMwvGO64hwR0tdMM")
+        .then((result) => {
+            console.log("EMAIL ENVIADO!", result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
       };
 
   return (
@@ -23,7 +36,7 @@ const Contact = () => {
         <div className="flex flex-col max-w-[1440px] ">
             <h2 className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44">Entre em contato           
             </h2>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col md:items-center mt-14 md:px-0 px-6'>
+            <form onSubmit={handleSubmit((data, event) => onSubmit(data, event!))} className='flex flex-col md:items-center mt-14 md:px-0 px-6'>
                 <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="text" id="name" placeholder='Seu nome'  {...register('name', {
                     required: 'Campo obrigatório',
                     minLength: { value: 3, message: 'Mínimo de 3 caracteres' },
@@ -46,20 +59,7 @@ const Contact = () => {
                 />
                 {errors?.email && (
                     <small className="text-xs text-red-500 mt-1">{errors.email.message}</small>
-                )}
-                <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="tel" id="phone" placeholder="Seu telefone: (99) 99999-9999"
-                {...register("cellphone", {
-                    required: "O telefone é obrigatório",
-                    pattern: {
-                      value: cellphoneRegex,
-                      message: "O telefone é inválido",
-                    },
-                    validate: (value) => value?.trim() !== '' || 'O telefone não pode ser vazio',
-                  })}
-                />
-                {errors?.cellphone && (
-                    <small className="text-xs text-red-500 mt-1">{errors.cellphone.message}</small>
-                )}
+                )}                
                 <textarea className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full pt-3 pl-3 focus:border-neutral-300 resize-none' id="message" rows={5} placeholder='Sua mensagem' {...register("message", {
                     required: "A mensagem é obrigatória",
                     validate: (value) => value?.trim() !== '' || 'A mensagem não pode ser vazia',
