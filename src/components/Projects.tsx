@@ -4,14 +4,12 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { useWidthContext } from "../context/WidthContext"
 import { motion } from "framer-motion";
-import useScrollDirection from "../hooks/useScrollDirection";
 
 const Projects = () => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const projects_per_page =  4
   const { windowWidth} = useWidthContext()
-  const scrollDirection = useScrollDirection();
 
   const getVisibleProjects = () => {
 
@@ -64,8 +62,8 @@ const Projects = () => {
           className='max-w-[1440px] flex flex-col px-12'
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
-          viewport={{ once: false, amount: 0.3 }}
-          animate={scrollDirection === "down" ? "visible" : undefined}
+          viewport={{ once: true, amount: 0.3 }}
+
         >
           <h2 
             className="text-4xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44"
@@ -73,15 +71,22 @@ const Projects = () => {
             PROJETOS
           </h2>
           <ul className='mt-32 flex flex-col gap-16'>
-              {getVisibleProjects().map((project) => (
+              {getVisibleProjects().map((project, index) => (
                 (
-                  project.id % 2 !== 0 ?
+                  index % 2 == 0 ?
                   <li 
-                    key={project.id} 
-                    className='flex md:flex-row flex-col items-center gap-10 '
+                    key={index} 
+                    className='flex md:flex-row flex-col items-center self-start gap-10 '
                   >
                     <a href={project.link} target='_blank' rel='noreferrer'>
-                      <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
+                      {
+                        project.image === undefined ?
+                        <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
+                          <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
+                        </div>
+                        :
+                        <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110" alt="Imagem Projeto" />
+                      }             
                     </a>
                     <div className='flex flex-col gap-4 max-w-[600px]'>
                       <h3 className='text-white md:text-start text-center text-3xl font-semibold'>{project.title}</h3>
@@ -96,11 +101,18 @@ const Projects = () => {
                   </li>
                   :
                   <li 
-                    key={project.id} 
+                    key={index} 
                     className='flex md:flex-row-reverse flex-col items-center self-end gap-10'
                   >
                     <a href={project.link} target='_blank' rel='noreferrer'>
-                      <img src={project.image} className='w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110' alt="Imagem Projeto" />
+                      {
+                        project.image === undefined ?
+                        <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
+                          <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
+                        </div>
+                        :
+                        <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
+                      }
                     </a>
                     <div className='flex flex-col gap-4 max-w-[600px]'>
                       <h3 className='text-white text-3xl md:text-end text-center font-semibold'>{project.title}</h3>
@@ -157,8 +169,7 @@ const Projects = () => {
           className="flex flex-col items-center"
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
-          viewport={{ once: false, amount: 0.3 }}
-          animate={scrollDirection === "down" ? "visible" : undefined}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <h2 
             className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mb-8 mt-36"
@@ -171,16 +182,23 @@ const Projects = () => {
               perPage: 1,
               arrows: false,
             }}
-            className="splide w-full max-w-4xl"
+            className="splide custom-splide w-full max-w-4xl"
           >
             {projects.map((project, index) => (
               <SplideSlide key={index}>
                 <div 
-                  key={project.id} 
+                  key={index} 
                   className='flex flex-col items-center gap-10'
                 >
                   <a href={project.link} target='_blank' rel='noreferrer'>
-                    <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-125" alt="Imagem Projeto" />
+                  {
+                    project.image === undefined ?
+                    <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
+                      <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
+                    </div>
+                    :
+                    <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
+                      }
                   </a>
                   <div className='flex flex-col gap-4 max-w-[600px]'>
                     <h3 className='text-white text-center text-3xl font-semibold'>{project.title}</h3>

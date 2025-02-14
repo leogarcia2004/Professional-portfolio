@@ -13,6 +13,10 @@ import FinanceAi from '../assets/images_projects/FinanceAi.png'
 import EcommerceFurniro from '../assets/images_projects/EcommerceFurniro.png'
 import AplicationNotes from '../assets/images_projects/AplicationNotes.png'
 import EcommerceClothes from '../assets/images_projects/EcommerceClothes.png'
+import JogoDaVelha from '../assets/images_projects/JogoDaVelha.png'
+import TesteConhecimento from '../assets/images_projects/TesteConhecimento.png'
+import TaskerMaker from '../assets/images_projects/TaskerMaker.png'
+import PetsAdoption from '../assets/images_projects/PetsAdoption.png'
 
 export const skills = [
     { name: 'HTML', image: HTML, description: 'Linguagem responsável por definir o esqueleto de sites. Possuo amplo domínio.', alt: 'Icone Html' },
@@ -29,7 +33,6 @@ export const skills = [
 
 export const projects = [
       {
-          id: 1,
           title: 'Saas Gestão Financeira',
           image: FinanceAi,
           description: 'Este projeto é uma plataforma permite gerenciar finanças de maneira eficiente, além de proporcionar diversas opções de investimento, oferecendo flexibilidade para tomadas de decisão financeiras.',
@@ -37,128 +40,108 @@ export const projects = [
           Technologies: ['NextJs', 'TypeScript', 'TailwindCSS', 'NodeJS', 'PostgreSQL', 'CLerk', 'Stripe']
       },
       {
-          id: 2,
           title: 'Ecommerce Furniro',
           image: EcommerceFurniro,
           description: 'Este projeto é uma simulação de um e-commerce de móveis, onde os usuários podem explorar produtos, adicioná-los ao carrinho e finalizar suas compras. É necessário realizar login para acessar todas as funcionalidades, proporcionando uma experiência segura e personalizada.',
           link: 'https://github.com/leogarcia2004/ECOMMERCE-FURNIRO',
-          Technologies: ['React', 'TypeScript', 'TailwindCSS', 'Firebase']
+          Technologies: ['ReactJs', 'TypeScript', 'TailwindCSS', 'Firebase']
       },
       {
-          id: 3,
           title: 'Aplicação Web de notas',
           image: AplicationNotes,
           description: 'Este projeto permite criar e armazenar notas no local storage, garantindo sua preservação após recarregar a página. Inclui integração com áudio para gravação e transcrição de notas de voz.',
-          link: 'https://github.com/leogarcia2004/AplicacaoWeb-notes',
-          Technologies: ['React', 'TypeScript', 'TailwindCSS']
+          link: 'https://aplicacao-web-notes.vercel.app/',
+          Technologies: ['ReactJs', 'TypeScript', 'TailwindCSS']
       },
       {
-          id: 4,
-          title: 'Ecommerce de roupas',
+          title: 'Ecommerce Garcia Vendas',
           image: EcommerceClothes,
           description: 'Este projeto é um e-commerce de roupas que permite aos usuários selecionar produtos, adicioná-los ao carrinho. O cadastro com credenciais e informações de pagamento é necessário para finalizar a compra, e as compras são registradas em um histórico organizado.',
-          link: 'https://github.com/leogarcia2004/PAGINA-E-COMMERCE',
+          link: 'https://pagina-e-commerce.vercel.app/',
           Technologies: ['JavaScript', 'HTML', 'TailwindCSS']
       },
       {
-        id: 5,
-        title: 'Site Apple Watch',
-        image: EcommerceClothes,
-        description: 'Este projeto é um ecommerce de Apple Watch, no qual o usuário poderá escolher o produto, de acordo com o tamanho e cor. .',
-        link: 'https://github.com/leogarcia2004/Site-Apple-Watch',
-        Technologies: ['JavaScript', 'HTML', 'CSS']
-      },
-      {
-        id: 6,
-        title: 'Jogo da Velha',
-        image: EcommerceClothes,
-        description: 'Este projeto é um jogo da velha interativo, onde o usuário pode optar por jogar contra outro jogador ou contra uma inteligência artificial (IA). A cada partida, a pontuação é atribuída ao vencedor, proporcionando uma experiência competitiva e dinâmica.',
-        link: 'https://github.com/leogarcia2004/Joga-da-Velha',
-        Technologies: ['JavaScript', 'HTML', 'CSS']
-      },
-      {
-        id: 7,
-        title: 'Calculadora',
-        image: EcommerceClothes,
-        description: 'Este projeto consiste no desenvolvimento de uma calculadora funcional, que permite aos usuários realizar operações matemáticas básicas, como adição, subtração, multiplicação e divisão, de maneira prática e eficiente.',
-        link: 'https://github.com/leogarcia2004/Calculadora',
-        Technologies: ['JavaScript', 'HTML', 'CSS']
-      },
-      {
-        id: 8,
-        title: 'Marcador de tarefas',
-        image: EcommerceClothes,
-        description: 'Este projeto é um marcador de tarefas, onde o usuário pode adicionar, editar e excluir tarefas, além de marcar como concluídas. A aplicação permite organizar as atividades diárias de forma eficiente e prática.',
-        link: 'https://github.com/leogarcia2004/App-marcador-de-tarefas',
-        Technologies: ['JavaScript', 'HTML', 'CSS']
-      },
-      {
-        id: 9,
         title: 'Site adoação de pets',
-        image: EcommerceClothes,
+        image: PetsAdoption,
         description: 'Este projeto é um site de adoção de pets, onde o usuário pode visualizar os animais disponíveis para adoção, além de obter informações sobre cada um deles. O site obtém dois formulários para o preenchimento de dados caso o usuário resolva adotar.',
-        link: 'https://github.com/leogarcia2004/Site_Adocao',
+        link: 'https://pets-adoption-delta.vercel.app/',
+        Technologies: ['React', 'TypeScript', 'TailwindCSS']
+      },
+      {
+        title: 'Marcador de tarefas',
+        image: TaskerMaker,
+        description: 'Este projeto é um marcador de tarefas, onde o usuário pode adicionar, editar e excluir tarefas, além de marcar como concluídas. A aplicação permite organizar as atividades diárias de forma eficiente e prática.',
+        link: 'https://app-task-marker.vercel.app/',
         Technologies: ['JavaScript', 'HTML', 'CSS']
       }, 
       {
-        id: 10,
+        title: 'Jogo da Velha',
+        image: JogoDaVelha,
+        description: 'Este projeto é um jogo da velha interativo, onde o usuário pode optar por jogar contra outro jogador ou contra uma inteligência artificial (IA). A cada partida, a pontuação é atribuída ao vencedor, proporcionando uma experiência competitiva e dinâmica.',
+        link: 'https://joga-da-velha-virid.vercel.app/',
+        Technologies: ['JavaScript', 'HTML', 'CSS']
+      },
+      {
+        title: 'Teste de conhecimento',
+        image: TesteConhecimento,
+        description: 'Este projeto consiste em um teste de conhecimento, onde o usuário pode responder perguntas de múltipla escolha e verificar o resultado ao final. O teste é composto por perguntas de diferentes níveis de dificuldade, proporcionando uma experiência educativa e desafiadora.',
+        link: 'https://teste-conhecimento.vercel.app/',
+        Technologies: ['JavaScript', 'HTML', 'CSS']
+      },
+      {
         title: 'Análise de dados - Cancelamento de clientes',
-        image: EcommerceClothes,
+        image: undefined,
         description: 'Este projeto consiste na análise de dados com o objetivo de identificar motivos que influenciam a decisão dos clientes de cancelar o serviço. A análise é realizada por meio de gráficos e tabelas, que facilitam a visualização e interpretação dos dados.',
         link: 'https://github.com/leogarcia2004/Analise-dados-cancelamento-clientes',
         Technologies: ['Python', 'Pandas']
       },
       {
-        id: 11,
         title: 'Automação - Envio de e-mails',
-        image: EcommerceClothes,
+        image: undefined,
         description: 'Este projeto é um sistema de automação que permite o envio de e-mails personalizados para os clientes. A automação é realizada por meio de scripts, que facilitam o envio de mensagens em larga escala, de forma rápida e eficiente.',
         link: 'https://github.com/leogarcia2004/Automacao-de-e-mail-com-Python',
-        Technologies: ['Python']
+        Technologies: ['Python', 'Pandas']
       },
       {
-        id: 12,
         title: 'Inteligência Artificial - Previsões',
-        image: EcommerceClothes,
+        image: undefined,
         description: 'Este projeto consiste analisar todos os clientes de um banco, e com base nessa análise, criar um modelo que consiga ler as informações do cliente e dizer automaticamente o score de crédito dele: Ruim, Ok, Bom.',
         link: 'https://github.com/leogarcia2004/Score-cliente-em-banco-IA-Python',
         Technologies: ['Python']
       },
       {
-        id: 13,
         title: 'Criação chat online',
-        image: EcommerceClothes,
+        image: undefined,
         description: 'Este projeto consiste na criação de um chat online, que permite a interação entre os usuários por meio de mensagens.',
         link: 'https://github.com/leogarcia2004/Chat-online',
         Technologies: ['Python']
       }
     ]
 
-
 export const sections = [
-        {
-          name: "Inicio",
-          to: "home",
-          offset: 0
-        },
-        {
-          name: "Sobre",
-          to: "about",
-          offset: 50
-        },
-        {
-          name: "Habilidades",
-          to: "skills",
-          offset: 100
-        },
-        {
-          name: "Projetos",
-          to: "projects",
-          offset: 100
-        },
-        {
-          name: "Contato",
-          to: "contact",
-          offset: 100
-        }
-      ]
+    {
+      name: "Inicio",
+      to: "home",
+      offset: 0
+    },
+    {
+      name: "Sobre",
+      to: "about",
+      offset: 50
+    },
+    {
+      name: "Habilidades",
+      to: "skills",
+      offset: 100
+    },
+    {
+      name: "Projetos",
+      to: "projects",
+      offset: 100
+    },
+    {
+      name: "Contato",
+      to: "contact",
+      offset: 100
+    }
+]

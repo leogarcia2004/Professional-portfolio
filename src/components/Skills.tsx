@@ -3,12 +3,10 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { useWidthContext } from "../context/WidthContext"
 import { motion } from "framer-motion";
-import useScrollDirection from "../hooks/useScrollDirection";
 
 const Skills = () => {
 
   const { windowWidth } = useWidthContext()
-  const scrollDirection = useScrollDirection();
 
   return (
     windowWidth > 770 ? (
@@ -58,7 +56,6 @@ const Skills = () => {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}	
           viewport={{ once: false, amount: 0.3 }}
-          animate={scrollDirection === "down" ? "visible" : undefined}
         >
           <h2
             className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] text-white border-b border-white pb-1 mb-8 mt-36"
