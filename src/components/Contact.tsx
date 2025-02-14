@@ -37,7 +37,7 @@ const Contact = () => {
             <h2 className="md:text-4xl text-3xl font-semibold tracking-[0.1rem] self-center text-white border-b border-white pb-1 mt-44">Entre em contato           
             </h2>
             <form onSubmit={handleSubmit((data, event) => onSubmit(data, event!))} className='flex flex-col md:items-center mt-14 md:px-0 px-6'>
-                <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="text" id="name" placeholder='Seu nome'  {...register('name', {
+                <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border focus:border-neutral-500 focus:outline-0 focus:bg-neutral-800' type="text" id="name" placeholder='Seu nome'  {...register('name', {
                     required: 'Campo obrigatório',
                     minLength: { value: 3, message: 'Mínimo de 3 caracteres' },
                     maxLength: { value: 40, message: 'Máximo de 40 caracteres' },
@@ -47,7 +47,7 @@ const Contact = () => {
                 {errors?.name && (
                     <small className="text-xs text-red-500 mt-1">{errors.name.message}</small>
                 )}
-                <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border-neutral-300 appearance-none' type="email" id="email" placeholder='Seu e-mail'  
+                <input className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full h-12 pl-3 focus:border focus:border-neutral-500 focus:outline-0 focus:bg-neutral-800' type="email" id="email" placeholder='Seu e-mail'  
                 {...register("email", {
                     required: "O e-mail é obrigatório",
                     pattern: {
@@ -60,7 +60,7 @@ const Contact = () => {
                 {errors?.email && (
                     <small className="text-xs text-red-500 mt-1">{errors.email.message}</small>
                 )}                
-                <textarea className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full pt-3 pl-3 focus:border-neutral-300 resize-none' id="message" rows={5} placeholder='Sua mensagem' {...register("message", {
+                <textarea className='bg-[#202020] text-neutral-300 rounded-xl mt-6 md:w-[500px] w-full pt-3 pl-3 focus:border focus:border-neutral-500 focus:outline-0 focus:bg-neutral-800 resize-none' id="message" rows={5} placeholder='Sua mensagem' {...register("message", {
                     required: "A mensagem é obrigatória",
                     validate: (value) => value?.trim() !== '' || 'A mensagem não pode ser vazia',
                  }

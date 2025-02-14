@@ -72,26 +72,44 @@ const Projects = () => {
           </h2>
           <ul className='mt-32 flex flex-col gap-16'>
               {getVisibleProjects().map((project, index) => (
-                (
-                  index % 2 == 0 ?
+    
                   <li 
                     key={index} 
-                    className='flex md:flex-row flex-col items-center self-start gap-10 '
+                    className={`flex md:flex-row  flex-col items-center ${index % 2 == 0 ? '' : 'md:flex-row-reverse'} gap-10 `}
                   >
-                    <a href={project.link} target='_blank' rel='noreferrer'>
-                      {
-                        project.image === undefined ?
-                        <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
-                          <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
-                        </div>
-                        :
-                        <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110" alt="Imagem Projeto" />
-                      }             
-                    </a>
+                    <div className="relative w-72 h-48 group">
+                      <div>
+                        {project.image === undefined ? (
+                          <div className="bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 group-hover:scale-110">
+                            <span className="text-2xl font-semibold text-white">Projeto sem Imagem!</span>
+                          </div>
+                        ) : (
+                          <img
+                            src={project.image}
+                            className={`w-72 h-48 rounded-2xl transform transition-transform duration-300 ${
+                              index % 2 === 0 ? 'self-start' : 'self-end'
+                            } group-hover:scale-110`}
+                            alt="Imagem Projeto"
+                          />
+                        )}
+                      </div>
+                      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 rounded-2xl flex gap-2 justify-center items-center opacity-0 group-hover:opacity-100 transform transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                        <a href={project.link_project} target="_blank" rel="noreferrer">
+                        {
+                            project.image  && (
+                              <button className="px-4 py-2 bg-neutral-800 text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition">Ver Projeto</button>
+                            ) 
+                          }
+                        </a>
+                        <a href={project.link_github} target="_blank" rel="noreferrer">
+                          <button className="px-4 py-2 bg-neutral-800 text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition">Código Fonte</button>
+                        </a>
+                      </div>
+                    </div>
                     <div className='flex flex-col gap-4 max-w-[600px]'>
-                      <h3 className='text-white md:text-start text-center text-3xl font-semibold'>{project.title}</h3>
+                      <h3 className={`text-white ${index % 2 == 0 ? 'md:text-start' : 'md:text-end'} text-center text-3xl font-semibold`}>{project.title}</h3>
                       <p className='text-gray-300 md:text-justify text-center '>{project.description}</p>
-                      <ul className='flex flex-wrap gap-4 items-center'>
+                      <ul className={`flex flex-wrap gap-4 items-center ${index % 2 == 0 ? 'self-start' : 'self-end '}`}>
                         {project.Technologies.map((tech, index) => (
                           <li key={index} className='px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold transform transition-transform duration-300 hover:scale-110'>{tech}</li>
                         ))
@@ -99,33 +117,7 @@ const Projects = () => {
                       </ul>
                     </div>  
                   </li>
-                  :
-                  <li 
-                    key={index} 
-                    className='flex md:flex-row-reverse flex-col items-center self-end gap-10'
-                  >
-                    <a href={project.link} target='_blank' rel='noreferrer'>
-                      {
-                        project.image === undefined ?
-                        <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
-                          <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
-                        </div>
-                        :
-                        <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
-                      }
-                    </a>
-                    <div className='flex flex-col gap-4 max-w-[600px]'>
-                      <h3 className='text-white text-3xl md:text-end text-center font-semibold'>{project.title}</h3>
-                      <p className='text-gray-300 md:text-justify text-center'>{project.description}</p>
-                      <ul className='flex flex-wrap gap-4 self-end items-center'>
-                        {project.Technologies.map((tech, index) => (
-                          <li key={index} className='px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold transform transition-transform duration-300 hover:scale-110'>{tech}</li>
-                        ))
-                        }
-                      </ul>
-                    </div>    
-                  </li>
-                )
+
               ))}
             </ul>
             <div className="flex gap-6 justify-center mt-20 mb-12">
@@ -190,16 +182,35 @@ const Projects = () => {
                   key={index} 
                   className='flex flex-col items-center gap-10'
                 >
-                  <a href={project.link} target='_blank' rel='noreferrer'>
-                  {
-                    project.image === undefined ?
-                    <div className='bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 hover:scale-110'>
-                      <span className='text-2xl font-semibold text-white'>Projeto sem Imagem!</span>
-                    </div>
-                    :
-                    <img src={project.image} className="w-72 h-48 rounded-2xl transform transition-transform duration-300 hover:scale-110 " alt="Imagem Projeto" />
-                      }
-                  </a>
+                  <div className="relative w-72 h-48 group">
+                      <div>
+                        {project.image === undefined ? (
+                          <div className="bg-[#202020] w-72 h-48 rounded-2xl flex justify-center items-center transform transition-transform duration-300 group-hover:scale-110">
+                            <span className="text-2xl font-semibold text-white">Projeto sem Imagem!</span>
+                          </div>
+                        ) : (
+                          <img
+                            src={project.image}
+                            className={`w-72 h-48 rounded-2xl transform transition-transform duration-300 ${
+                              index % 2 === 0 ? 'self-start' : 'self-end'
+                            } group-hover:scale-110`}
+                            alt="Imagem Projeto"
+                          />
+                        )}
+                      </div>
+                      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 rounded-2xl flex gap-2 justify-center items-center opacity-0 group-hover:opacity-100 transform transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                        <a href={project.link_project} target="_blank" rel="noreferrer">
+                          {
+                            project.image  && (
+                              <button className="px-4 py-2 bg-neutral-800 text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition">Ver Projeto</button>
+                            ) 
+                          }                          
+                        </a>
+                        <a href={project.link_github} target="_blank" rel="noreferrer">
+                          <button className="px-4 py-2 bg-neutral-800 text-white text-sm font-medium rounded-full hover:bg-neutral-700 transition">Código Fonte</button>
+                        </a>
+                      </div>
+                  </div>
                   <div className='flex flex-col gap-4 max-w-[600px]'>
                     <h3 className='text-white text-center text-3xl font-semibold'>{project.title}</h3>
                     <p className='text-gray-300 text-center  px-2'>{project.description}</p>
