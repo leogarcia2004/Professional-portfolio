@@ -129,7 +129,7 @@ const Cursor = ({ position }: CursorProps) => {
       animate={{
         ...position,
       }}
-      className="absolute top-4 z-0 rounded-full bg-zinc-700 md:h-8"
+      className="absolute top-4 z-0 rounded-full bg-neutral-800 md:h-8"
     />
   );
 };
