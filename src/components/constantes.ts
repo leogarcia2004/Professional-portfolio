@@ -43,7 +43,7 @@ export const projects = [
       {
           title: 'Ecommerce Furniro',
           image: EcommerceFurniro,
-          description: 'Este projeto é uma simulação de um e-commerce de móveis, onde os usuários podem explorar produtos, adicioná-los ao carrinho e finalizar suas compras. É necessário realizar login para acessar todas as funcionalidades, proporcionando uma experiência segura e personalizada.',
+          description: 'Este projeto é uma simulação de um e-commerce de móveis, onde os usuários podem explorar produtos, adicioná-los ao carrinho e finalizar suas compras. É necessário realizar login para acessar todas as funcionalidades, proporcionando uma experiência segura e personalizada. Atualmente este projeto está em desenvolvimento.',
           link_project: 'https://ecommerce-furniro.vercel.app/',
           link_github: 'https://github.com/leogarcia2004/ECOMMERCE-FURNIRO',
           Technologies: ['ReactJs', 'TypeScript', 'TailwindCSS', 'Firebase']
