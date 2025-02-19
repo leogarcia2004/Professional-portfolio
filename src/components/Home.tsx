@@ -1,6 +1,6 @@
 
 import { useWidthContext } from "../context/WidthContext";
-import Foto_Perfil from '../assets/foto_perfil.jpeg';
+import Foto_Perfil from '../assets/Foto_Perfil.jpeg';
 
 const Home = () => {
 
