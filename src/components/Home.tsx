@@ -1,6 +1,6 @@
 
 import { useWidthContext } from "../context/WidthContext";
-import Foto_perfil from '../assets/foto_perfil.jpeg';
+
 const Home = () => {
 
   const { navBarOpen } = useWidthContext();
